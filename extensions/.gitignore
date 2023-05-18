@@ -1,0 +1,17 @@
+*
+!igniter/demo/
+!igniter/api  
+!igniter/automation  
+!igniter/broadcast  
+!igniter/cart  
+!igniter/coupons  
+!igniter/demo  
+!igniter/frontend  
+!igniter/local  
+!igniter/pages  
+!igniter/payregister  
+!igniter/reservation  
+!igniter/socialite  
+!igniter/user
+
+!.gitignore

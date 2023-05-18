@@ -1,92 +1,70 @@
-# ArasuChettinad
+<p align="center"><a href="https://tastyigniter" target="_blank"><img src="https://tastyigniter.com/images/logos/logo-padded.png" width="400"></a></p>
 
-Git Repository for Project ArasuChettinad
+<p align="center">
+<a href="https://packagist.org/packages/tastyigniter/TastyIgniter"><img src="https://img.shields.io/packagist/v/tastyigniter/TastyIgniter.svg?label=Stable&style=flat-square" alt="Stable"></a>
+<a href="https://packagist.org/packages/tastyigniter/TastyIgniter"><img src="https://poser.pugx.org/tastyigniter/flame/downloads" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/tastyigniter/TastyIgniter"><img src="https://img.shields.io/github/actions/workflow/status/tastyigniter/TastyIgniter/tests.yml?branch=3.x&label=Tests" alt="GitHub Workflow Status"></a>
+<a href="https://github.styleci.io/repos/16455664"><img src="https://github.styleci.io/repos/7548986/shield?style=flat" alt="Build Status"></a>
+<a href="https://github.com/tastyigniter/TastyIgniter/blob/master/LICENSE.txt"><img src="https://img.shields.io/github/license/tastyigniter/TastyIgniter.svg?label=License&style=flat-square" alt="License"></a>
+<a href="https://crowdin.com/project/tastyigniter"><img src="https://badges.crowdin.net/tastyigniter/localized.svg" alt="Crowdin"></a>
+<a href="https://twitter.com/TastyIgniter"><img src="https://img.shields.io/twitter/follow/TastyIgniter.svg?label=Follow" alt="Twitter"></a>
+</p>
 
-## Getting started
+[TastyIgniter](https://tastyigniter.com/) provides a professional and reliable platform for restaurants wanting to offer
+online food ordering and table reservation to their customers.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+![screenshot](https://tastyigniter.com/images/mockups/Menus-v2.png)
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+### Documentation
+The best place to learn TastyIgniter is by reading the [documentation](https://tastyigniter.com/docs)
 
-## Add your files
+### Installation
+Please read the [Installation Guide](https://tastyigniter.com/docs/installation) for more information.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+### Questions
+For questions and support please use the [Community Forum](https://forum.tastyigniter.com) or [Join us on Discord](https://tastyigniter.com/discord). 
 
-```
-cd existing_repo
-git remote add origin https://gitlab.diligentsquad.com/touchfreewaiter/arasuchettinad.git
-git branch -M main
-git push -uf origin main
-```
+### Issues
+Please report bugs using the [GitHub issue tracker](https://github.com/tastyigniter/TastyIgniter/issues)
 
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://gitlab.diligentsquad.com/touchfreewaiter/arasuchettinad/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+### Stay in touch
+- [Follow us on Twitter](https://twitter.com/tastyigniter/) for announcements and updates.
+- [Blog](https://tastyigniter.com/blog) for tips and latest developments in the food industry.
 
 ## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+We would love your help building TastyIgniter! Please read the [Contributing Guidelines](.github/CONTRIBUTING.md) to learn how you can help.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+Thank you to all the people who already contributed to TastyIgniter!
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+<a href="https://github.com/tastyigniter/TastyIgniter/graphs/contributors"><img src="https://opencollective.com/tastyigniter/contributors.svg?width=890&button=false" /></a>
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+## Supporting TastyIgniter
+TastyIgniter is an MIT-licensed community-driven project with its continuous development made possible by the support of these awesome [backers](#contributing). If you'd like to help support the future of the project, please consider:
+1. Donating development time to the project.
+2. Spreading the word about TastyIgniter.
+3. Becoming a sponsor by donating funds (see below).
+
+## Sponsors
+Become a sponsor and get your logo on our README on Github with a link to your site. 
+
+### via Open Collective
+<a href="https://opencollective.com/tastyigniter" target="_blank" rel="noopener noreferrer"><img src="https://opencollective.com/tastyigniter/sponsors.svg"></a>
+
+<a href="https://opencollective.com/tastyigniter" target="_blank" rel="noopener noreferrer"><img src="https://opencollective.com/tastyigniter/backers.svg"></a>
+
+### via Patreon
+[[Become a Patreon sponsor](https://www.patreon.com/sampoyigi)]
+
+## Built With :heart:
+- Laravel full-stack PHP framework
+- Bootstrap 4 front-end framework
+
+## Author
+TastyIgniter was created by [Samuel Adepoyigi](https://github.com/sampoyigi).
+
+## Security Vulnerabilities
+If you discover a security vulnerability within TastyIgniter, please send an e-mail to support@tastyigniter.com.
 
 ## License
-For open source projects, say how it is licensed.
+Starting with version 3.0.0 TastyIgniter is licensed under the [The MIT License (MIT)](https://tastyigniter.com/license/). Older versions were GPL-licensed.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
