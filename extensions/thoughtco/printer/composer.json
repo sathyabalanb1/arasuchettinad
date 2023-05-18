@@ -1,0 +1,26 @@
+{
+  "name": "thoughtco/ti-ext-printer",
+  "license": "MIT",
+  "description": "Allow for printing of order dockets though USB (ESC/P), IP/Network Printing (ESC/P) or Epson ePOS network web service.",
+  "type": "tastyigniter-extension",
+  "keywords": ["tastyigniter", "printer"],
+   "authors": [
+     {
+       "name": "Ryan Mitchell",
+       "email": "ryan@thoughtcollective.com"
+     }
+   ],
+   "extra": {
+     "tastyigniter-extension": {
+       "code": "thoughtco.printer",
+       "name": "Dine In",
+       "icon": {
+         "class": "fa fa-print",
+         "color": "#FFF",
+         "backgroundColor": "#111"
+       },
+       "homepage": "https://tastyigniter.com/marketplace/item/thoughtco-printer",
+       "require": {}
+     }
+   }
+}

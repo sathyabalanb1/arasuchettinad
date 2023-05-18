@@ -1,0 +1,29 @@
+{
+  "name": "thoughtco/ti-ext-dinein",
+  "license": "MIT",
+  "description": "Enables service to tables and waiter order types",
+  "type": "tastyigniter-extension",
+  "keywords": ["tastyigniter", "dine in"],
+  "require": {
+    "simplesoftwareio/simple-qrcode": "~4"
+  },
+   "authors": [
+     {
+       "name": "Ryan Mitchell",
+       "email": "ryan@thoughtcollective.com"
+     }
+   ],
+   "extra": {
+     "tastyigniter-extension": {
+       "code": "thoughtco.dinein",
+       "name": "Dine In",
+       "icon": {
+         "class": "fa fa-chair",
+         "color": "#FFF",
+         "backgroundColor": "#111"
+       },
+       "homepage": "https://tastyigniter.com/marketplace/item/thoughtco-dinein",
+       "require": {}
+     }
+   }
+}
