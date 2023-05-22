@@ -93,13 +93,6 @@ $config['list']['columns'] = [
         'select' => "concat(first_name, ' ', last_name)",
         'searchable' => true,
     ],
-    'table_name' => [
-        'label' => 'lang:admin::lang.orders.column_table_name',
-        'type' => 'text',
-        'sortable' => FALSE,
-        'relation' => 'table_value',
-        'select' => 'table_name',
-    ],
     'order_type_name' => [
         'label' => 'lang:admin::lang.label_type',
         'type' => 'text',

@@ -4,7 +4,7 @@ namespace Igniter\Cart\Classes;
 
 use Admin\Models\Addresses_model;
 use Admin\Models\Customers_model;
-use Admin\Models\Orders_model;
+use Igniter\Cart\Models\Orders_model;
 use Igniter\Flame\Cart\CartCondition;
 use Igniter\Flame\Exception\ApplicationException;
 use Igniter\Flame\Traits\Singleton;
@@ -101,7 +101,7 @@ class OrderManager
 
     public function getDefaultPayment()
     {
-        return $this->getPaymentGateways()->where('is_default', true)->first();
+        return $this->getPaymentGateways()->where('is_default', TRUE)->first();
     }
 
     /**
@@ -152,11 +152,7 @@ class OrderManager
         if (!$collection || $collection->isEmpty())
             throw new ApplicationException(lang('igniter.local::default.alert_invalid_search_query'));
 
-        $userLocation = $collection->first();
-
-        $this->location->updateUserPosition($userLocation);
-
-        if (!$area = $this->location->current()->searchDeliveryArea($userLocation->getCoordinates()))
+        if (!$area = $this->location->current()->searchDeliveryArea($collection->first()->getCoordinates()))
             throw new ApplicationException(lang('igniter.cart::default.checkout.error_covered_area'));
 
         if (!$this->location->isCurrentAreaId($area->area_id)) {
@@ -174,7 +170,6 @@ class OrderManager
     public function saveOrder($order, array $data)
     {
         Event::fire('igniter.checkout.beforeSaveOrder', [$order, $data]);
-
         if ($this->customer)
             $data['email'] = $this->customer->email;
 
@@ -195,14 +190,22 @@ class OrderManager
         $order->fill($data);
         $order->address_id = $addressId;
         $this->applyRequiredAttributes($order);
-        if(isset($data['table_number'])) {
-            $order->setAttribute('table_number', $data['table_number']);
-        }
+
         $order->save();
 
         $this->setCurrentOrderId($order->order_id);
 
-        $order->addOrderMenus($this->cart->content()->all());
+         $totals = $this->cart->conditions()->map(function (CartCondition $condition) {
+
+                return [
+                    'code' => $condition->name,
+                    'title' => $condition->getLabel(),
+                    'value' => $condition->getValue(),
+                    'priority' => $condition->getPriority() ?: 1,
+                    'is_summable' => !$condition->isInclusive(),
+                ];
+            })->all();
+        $order->addOrderMenus($this->cart->content()->all(),$this->cart->conditions());
         $order->addOrderTotals($this->getCartTotals());
 
         Event::fire('igniter.checkout.afterSaveOrder', [$order]);
@@ -215,7 +218,7 @@ class OrderManager
         Event::fire('igniter.checkout.beforePayment', [$order, $data]);
 
         if (!strlen($order->payment) && $this->processPaymentLessForm($order))
-            return true;
+            return TRUE;
 
         $paymentMethod = $this->getPayment($order->payment);
         if (!$paymentMethod || !$paymentMethod->status)
@@ -281,6 +284,7 @@ class OrderManager
     public function getCartTotals()
     {
         $totals = $this->cart->conditions()->map(function (CartCondition $condition) {
+
             return [
                 'code' => $condition->name,
                 'title' => $condition->getLabel(),
@@ -289,13 +293,57 @@ class OrderManager
                 'is_summable' => !$condition->isInclusive(),
             ];
         })->all();
-
+        if(isset($totals['tax'])) {
+            if($totals['tax']['is_summable'] == 1){
+                $taxcondition = TRUE;
+            }
+            else{
+                $taxcondition = TRUE;
+            }
+            $totals['tax'] = [
+                'code' => 'tax',
+                'title' => $totals['tax']['title'],
+                'value' => number_format($totals['tax']['value'],2),
+                'priority' => $totals['tax']['priority'],
+                'is_summable' => $taxcondition
+            ];
+        }
+        if(isset($totals['cgsttax'])) {
+            if($totals['cgsttax']['is_summable'] == 1){
+                $ctaxcondition = TRUE;
+            }
+            else{
+                $ctaxcondition = TRUE;
+            }
+            $totals['cgsttax'] = [
+                'code' => 'tax_cgst',
+                'title' => $totals['cgsttax']['title'],
+                'value' => number_format($totals['cgsttax']['value'],2),
+                'priority' => $totals['cgsttax']['priority'],
+                'is_summable' => $ctaxcondition
+            ];
+        }
+        if(isset($totals['sgsttax'])) {
+            if($totals['sgsttax']['is_summable'] == 1){
+                $staxcondition = TRUE;
+            }
+            else{
+                $staxcondition = TRUE;
+            }
+            $totals['sgsttax'] = [
+                'code' => 'tax_sgst',
+                'title' => $totals['sgsttax']['title'],
+                'value' => number_format($totals['sgsttax']['value'],2),
+                'priority' => $totals['sgsttax']['priority'],
+                'is_summable' => $staxcondition
+            ];
+        }
         $totals['subtotal'] = [
             'code' => 'subtotal',
             'title' => lang('igniter.cart::default.text_sub_total'),
             'value' => $this->cart->subtotal(),
             'priority' => 0,
-            'is_summable' => false,
+            'is_summable' => FALSE,
         ];
 
         $totals['total'] = [
@@ -303,7 +351,7 @@ class OrderManager
             'title' => lang('igniter.cart::default.text_order_total'),
             'value' => max(0, $this->cart->total()),
             'priority' => 999,
-            'is_summable' => false,
+            'is_summable' => FALSE,
         ];
 
         return $totals;
@@ -316,12 +364,12 @@ class OrderManager
     protected function processPaymentLessForm($order)
     {
         if ($order->order_total > 0)
-            return false;
+            return FALSE;
 
-        $order->updateOrderStatus(setting('default_order_status'), ['notify' => false]);
+        $order->updateOrderStatus(setting('default_order_status'), ['notify' => FALSE]);
         $order->markAsPaymentProcessed();
 
-        return true;
+        return TRUE;
     }
 
     protected function applyOrderDateTime($order)

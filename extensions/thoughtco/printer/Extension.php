@@ -227,7 +227,7 @@ class Extension extends BaseExtension
 
 							return '
 							<div class="dropdown">
-							  <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">'.lang('thoughtco.printer::default.btn_print').'</button>
+							  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">'.lang('thoughtco.printer::default.btn_print').'</button>
 							  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							    <a class="dropdown-item" href="'.admin_url('thoughtco/printer/printdocket?sale='.$value).'">'.lang('thoughtco.printer::default.btn_print_all').'</a>
 								'.($printers->map(function($printer) use ($value) {

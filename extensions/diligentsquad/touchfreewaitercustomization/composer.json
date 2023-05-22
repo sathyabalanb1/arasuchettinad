@@ -1,0 +1,21 @@
+{
+  "name": "diligentsquad/touchfreewaitercustomization",
+  "type": "tastyigniter-extension",
+  "description": "Provides customization done on other modules for TouchFreeWaiter Site Requirements",
+  "authors": [
+    {
+      "name": "Diligentsquad",
+    }
+  ],
+  "extra": {
+    "tastyigniter-extension": {
+      "code": "diligentsquad.touchfreewaitercustomization",
+      "name": "touchfreewaitercustomization",
+      "icon": {
+        "class": "fa fa-wrench",
+        "backgroundColor": "#000000",
+        "color": "#FFF"
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 @if ($cart->count())
     <div class="cart-items">
-        <ul>
+       <ul>
             @foreach ($cart->content()->reverse() as $cartItem)
                 <li>
                     <button

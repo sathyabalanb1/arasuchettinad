@@ -1,69 +1,69 @@
 <?php
 
-namespace Igniter\Cart\CartConditions;
+namespace Diligentsquad\Gst\CartConditions;
 
+use Diligentsquad\Gst\Models\GstSettings;
 use Igniter\Flame\Cart\CartCondition;
 use Igniter\Local\Facades\Location;
+use Igniter\Local\Models\Reviews_model;
 use System\Models\Currencies_model;
+use Diligentsquad\Gst\Models\GstModel;
 
-class Tax extends CartCondition
+class SgstTax extends CartCondition
 {
-    protected $taxMode;
+
+    protected $taxSgst;
+
+    public $taxSgstRate;
+
+    protected $taxSgstRateLabel;
 
     public $taxInclusive;
 
-    public $taxRate;
-
-    protected $taxRateLabel;
-
-    public $priority = 300;
-
     protected $taxDelivery;
+
+    public $priority = 200;
 
     public function getLabel()
     {
-        $label = $this->taxInclusive ? "{$this->taxRateLabel}% ".lang('igniter.cart::default.text_vat_included') : "{$this->taxRateLabel}%";
+        $label= $this->taxInclusive ? "{$this->taxSgstRateLabel}% ".lang('diligentsquad.gst::default.text_sgst_included') : "{$this->taxSgstRateLabel}%";
         return sprintf(lang($this->label), $label);
     }
 
     public function onLoad()
     {
-        $this->taxMode = (bool)setting('tax_mode', 1);
-        $this->taxInclusive = !((bool)setting('tax_menu_price', 1));
-        $this->taxRate = $this->taxRateLabel = setting('tax_percentage', 0);
-        if ($this->taxInclusive)
-            $this->taxRate /= (100 + $this->taxRate) / 100;
-        $this->taxDelivery = (bool)setting('tax_delivery_charge', 0);
+        $this->taxSgst = GstSettings::get('tax_sgst');
+        $this->taxSgstRate = $this->taxSgstRateLabel = GstSettings::get('tax_sgst_percentage');
+        $this->taxInclusive = !(bool)GstSettings::get('tax_menu_price');
     }
 
     public function beforeApply()
     {
-        // only calculate taxes if enabled
-        if (!$this->taxMode || !$this->taxRate)
+        if (!$this->taxSgst || !$this->taxSgstRate)
             return FALSE;
     }
 
     public function getActions()
     {
         $precision = optional(Currencies_model::getDefault())->decimal_position ?? 2;
-
         return [
             [
-                'value' => "{$this->taxRate}%",
+                'value' => "{$this->taxSgstRate}%",
                 'inclusive' => $this->taxInclusive,
                 'valuePrecision' => $precision,
-            ],
+            ]
         ];
     }
 
     public function calculate($total)
     {
-        $excludeDeliveryCharge = Location::orderTypeIsDelivery() && !$this->taxDelivery;
+        $excludeDeliveryCharge = Location::orderTypeIsDelivery();
         if ($excludeDeliveryCharge) {
             $deliveryCharge = Location::coveredArea()->deliveryAmount($total);
             $total -= (float)$deliveryCharge;
         }
         $result = parent::calculate($total);
+
         if ($excludeDeliveryCharge) {
             $result += (float)$deliveryCharge;
         }

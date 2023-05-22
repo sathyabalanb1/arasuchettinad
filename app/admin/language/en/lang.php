@@ -80,7 +80,6 @@ return [
     'button_filter' => 'Filter',
     'button_save' => '<i class="fa fa-save"></i>&nbsp;&nbsp;Save',
     'button_save_close' => '<i class="fa fa-save"></i>&nbsp;&nbsp;Save & Close',
-    'button_print' => '<i class="fa fa-print"></i>&nbsp;&nbsp;Print',
     'button_icon_back' => '<i class="fa fa-arrow-left px-0"></i>',
     'button_icon_filter' => '<i class="fa fa-filter"></i>',
     'button_icon_delete' => '<i class="fa fa-trash-o"></i>',

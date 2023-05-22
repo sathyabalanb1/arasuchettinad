@@ -133,7 +133,7 @@ class Waiterservice extends \Admin\Classes\AdminController
                 'data-bs-target' => '#dinein-payment-modal',];
         }
         $toolbar_config['buttons']['printall'] = [
-            'label' => 'lang:admin::lang.button_print',
+            'label' => 'lang:thoughtco.dinein::default.button_print',
             'partial' => 'print/toolbar_print_button',
             'printerList' => $this->getPrinterList(),
             'class' => 'btn btn-primary',

@@ -6,6 +6,7 @@ return [
     'btn_print' => 'Print order',
     'btn_view_table' => 'View table',
     'btn_make_payment_table' => 'Make Payment',
+    'button_print' => '<i class="fa fa-print"></i>&nbsp;&nbsp;Print',
 
     'choose_table' => [
         'btn_yes' => 'Yes, is my table',

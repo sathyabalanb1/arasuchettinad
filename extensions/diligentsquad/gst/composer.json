@@ -1,0 +1,21 @@
+{
+  "name": "diligentsquad/gst",
+  "type": "tastyigniter-extension",
+  "description": "Add Goods and Services (GST) to the Order",
+  "authors": [
+    {
+      "name": "Diligentsquad",
+    }
+  ],
+  "extra": {
+    "tastyigniter-extension": {
+      "code": "diligentsquad.gst",
+      "name": "gst",
+      "icon": {
+        "class": "fa fa-money",
+        "backgroundColor": "#000000",
+        "color": "#FFF"
+      }
+    }
+  }
+}
