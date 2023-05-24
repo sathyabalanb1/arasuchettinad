@@ -301,7 +301,8 @@ class CartBox extends \System\Classes\BaseComponent
             return lang('igniter.cart::default.text_is_closed');
 
         if (!$this->property('pageIsCheckout') && $this->cartManager->getCart()->count())
-            return lang('igniter.cart::default.button_order').' · '.currency_format($this->cartManager->getCart()->total());
+            return lang('igniter.cart::default.button_order');
+         //   return lang('igniter.cart::default.button_order').' · '.currency_format($this->cartManager->getCart()->total());
 
         if (!$this->property('pageIsCheckout'))
             return lang('igniter.cart::default.button_order');
