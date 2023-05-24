@@ -318,7 +318,7 @@ class Waiterservice extends \Admin\Classes\AdminController
             'table_number' => $id,
             'order_type' => 'waiter',
         ])
-            ->whereNotIn('status_id', setting('completed_order_status'))
+            ->whereNotIn('status_id', [setting('completed_order_status'),setting('canceled_order_status')])
             ->get();
     }
 

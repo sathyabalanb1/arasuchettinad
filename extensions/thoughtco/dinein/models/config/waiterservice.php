@@ -36,7 +36,7 @@ return [
                         'order_type' => 'waiter',
                     ])
                         ->select(['created_at'])
-                        ->whereNotIn('status_id', setting('completed_order_status'))
+                        ->whereNotIn('status_id', [setting('completed_order_status'),setting('canceled_order_status')])
                         ->orderBy('created_at', 'ASC')
                         ->first();
 
@@ -85,7 +85,8 @@ return [
                         'table_number' => $value,
                         'order_type' => 'waiter',
                     ])
-                        ->whereNotIn('status_id', setting('completed_order_status'))
+                       // ->whereNotIn('status_id', setting('completed_order_status'))
+                       ->whereNotIn('status_id', [setting('completed_order_status'),setting('canceled_order_status')])
                         ->count();
 
                     if (!$order_count)
