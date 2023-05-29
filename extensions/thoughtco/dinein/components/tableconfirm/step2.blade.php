@@ -12,7 +12,7 @@
 
 
                     <div class="label label-light mb-3">
-                        <span class="h6">
+                        <span class="h6 text-dark">
                             <i class="fa fa-exclamation"></i>&nbsp;
                             @lang('thoughtco.dinein::default.choose_table.text_allergies')
                         </span>

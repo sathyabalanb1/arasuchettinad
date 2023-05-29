@@ -2,7 +2,7 @@
         <div class="card-body text-center">
 
             <div class="label label-light mb-3">
-                <span class="h6">
+                <span class="h6 text-dark">
                     <i class="fa fa-question-circle"></i>&nbsp;
                     {{ $table ? $table->table_name : '' }}
                 </span>
